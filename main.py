@@ -162,7 +162,7 @@ class HITSZICS():
     
     @classmethod
     def __getTechName(cls, s:str):
-        pattern = '\[(\D)*\]'
+        pattern = '\[\D*\]'
         result = re.findall(pattern, s)
         # print(result)
         if result is None or len(result) == 0:
