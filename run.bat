@@ -1,0 +1,1 @@
+streamlit run mainv2.py
