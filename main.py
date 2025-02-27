@@ -168,7 +168,7 @@ class HITSZICS():
         if result is None or len(result) == 0:
             return 'default teacher name'
         else:
-            return 
+            return ' '.join(result)
         
     @classmethod
     def __getJie(cls, s:str):
