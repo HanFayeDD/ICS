@@ -183,7 +183,7 @@ class HITSZICS():
         
     @classmethod
     def __getPlace(cls, s:str):
-        pattern = f'\[([THGK]\d+)\]|\[(哈工大\D+)\]|\[[THGK]\d+-[THGK]\d+\]'
+        pattern = f'\[([THGK]\d+)\]|\[(哈工大\D+)\]|\[[THGK]\d+-[THGK]\d+\]|\[(大学城\D+)\]'
         result = re.search(pattern, s)
         if result is None:
             return None
@@ -215,6 +215,26 @@ FILENAME = 'DefaultName'
 
 
 st.title('课表ICS生成🥰🥰')
+st.markdown('''
+1. 目前仅支持HITSZ本科生课表😭
+2. 使用正则表达式对表格内容进行解析，**解析结果可能存在一些问题**。**建议先新建一个日历本再导入下载好的ics文件。如果课表内容有错误，删除该日历本即可🤗**
+3. 因为测试用例较少，如果有问题或者有一些改进的意见，欢迎大家与我联系😋
+''')
+st.subheader('准备工作')
+st.markdown('''
+1.**从本研平台上下载xlsx课表即可**，如下图
+''')
+st.image("guide.png", caption="下载课表xlsx")
+st.markdown('''
+2.**对于一个单元格内多个课程信息的情况，需要人工在课程名前添加**`##`**进行分隔**。如下图。
+''')
+cols = st.columns(2)
+with cols[0]:
+    st.image("p1.png", caption="1个单元格内1个课程信息")
+    st.markdown('无需理会')
+with cols[1]:
+    st.image("p2.png", caption="1个单元格内多个课程信息")
+    st.markdown('需要修改.xlsx文件，在课程名前添加`##`进行分隔')
 st.subheader('开始使用')
 FILENAME = st.text_input("1.输入生成的ics文件的名称（无需包含.ics后缀）", 
                          "")

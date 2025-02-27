@@ -1,1 +1,1 @@
-streamlit run mainv2.py
+streamlit run main.py
